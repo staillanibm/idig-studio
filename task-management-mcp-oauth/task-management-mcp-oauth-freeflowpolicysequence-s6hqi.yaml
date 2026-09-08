@@ -1,0 +1,21 @@
+kind: FreeFlowPolicySequence
+apiVersion: api.ibm.com/v1
+metadata:
+  name: task-management-mcp-oauth-freeflowpolicysequence-s6hqi
+  namespace: task-management-mcp-oauth
+  version: '1.0'
+  tags: []
+  labels:
+    gatewayTypes:
+      - nano
+  domain: mcp
+spec:
+  main:
+    - $ref: task-management-mcp-oauth:ExtractIdentity-o1oK4:1.0
+    - $ref: task-management-mcp-oauth:Authenticate-gK5bK:1.0
+    - $ref: task-management-mcp-oauth:Switch-dbs4W:1.0
+    - $ref: task-management-mcp-oauth:RateLimit-U6ZCX:1.0
+    - $ref: task-management-mcp-oauth:SetAuthorization-z5Tj5:1.0
+    - $ref: task-management-mcp-oauth:invoke-s6hqi:1.0
+  monitoring:
+    $ref: task-management-mcp-oauth:telemetry-s6hqi:1.0

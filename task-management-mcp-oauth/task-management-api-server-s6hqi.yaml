@@ -1,0 +1,20 @@
+kind: MCPServer
+apiVersion: api.ibm.com/v1
+metadata:
+  name: task-management-api-server-s6hqi
+  namespace: task-management-mcp-oauth
+  version: "1.0"
+  tags: []
+  domain: mcp
+  labels:
+    origin: mcp-rest
+spec:
+  title: Task Management API MCP Server
+  protocolVersion: V2025_11_25
+  quota:
+    $ref: task-management-mcp-oauth:task-management-mcp-oauth-quota-s6hqi:1.0
+  policy-sequence:
+    - $ref: task-management-mcp-oauth:task-management-mcp-oauth-freeflowpolicysequence-s6hqi:1.0
+  capabilities:
+    tools:
+      - $ref: task-management-mcp-oauth:task-management-api-tool-s6hqi:1.0

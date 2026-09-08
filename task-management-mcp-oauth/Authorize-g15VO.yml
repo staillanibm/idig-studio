@@ -1,0 +1,18 @@
+kind: Authorize
+apiVersion: api.ibm.com/v1
+metadata:
+  name: Authorize-g15VO
+  namespace: task-management-mcp-oauth
+  version: '1.0'
+  tags: []
+  labels:
+    gatewayTypes:
+      - nano
+spec:
+  operation:
+    oauth2:
+      issClaim: https://keycloak.sttlab.eu/realms/sttlab
+      requiredScopes:
+        - provider: sttlab-keycloak
+          scopes:
+            - tasks:write

@@ -1,0 +1,15 @@
+kind: ExtractIdentity
+apiVersion: api.ibm.com/v1
+metadata:
+  name: ExtractIdentity-o1oK4
+  namespace: task-management-mcp-oauth
+  version: '1.0'
+  tags: []
+  labels:
+    gatewayTypes:
+      - nano
+spec:
+  credentialType:
+    oauth2:
+      httpHeader:
+        name: Authorization

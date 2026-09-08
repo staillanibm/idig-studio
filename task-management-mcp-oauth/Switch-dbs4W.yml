@@ -1,0 +1,20 @@
+kind: Switch
+apiVersion: api.ibm.com/v1
+metadata:
+  name: Switch-dbs4W
+  namespace: task-management-mcp-oauth
+  version: '1.0'
+  tags: []
+  labels:
+    gatewayTypes:
+      - nano
+spec:
+  cases:
+    - condition: >-
+        $contains($telemetry('mcp_tool_name'), 'createtask-') or
+        $contains($telemetry('mcp_tool_name'), 'updatetask-') or
+        $contains($telemetry('mcp_tool_name'), 'deletetask-')
+      execute:
+        - $ref: task-management-mcp-oauth:Authorize-g15VO:1.0
+  otherwise:
+    - $ref: task-management-mcp-oauth:Authorize-xjUvk:1.0
