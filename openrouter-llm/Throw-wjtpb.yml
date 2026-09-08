@@ -1,0 +1,16 @@
+kind: Throw
+apiVersion: api.ibm.com/v1
+metadata:
+  name: Throw-wjtpb
+  namespace: openrouter-llm
+  version: '1.0'
+  tags: []
+  labels:
+    gatewayTypes:
+      - nano
+spec:
+  error:
+    CustomError:
+      message: An error occurred while processing your request.
+      messageType: plain
+      status: 400

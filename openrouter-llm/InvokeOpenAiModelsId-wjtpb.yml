@@ -1,0 +1,17 @@
+kind: InvokeOpenAiModelsId
+apiVersion: api.ibm.com/v1
+metadata:
+  name: InvokeOpenAiModelsId-wjtpb
+  namespace: openrouter-llm
+  version: '1.0'
+  tags: []
+  labels:
+    gatewayTypes:
+      - nano
+spec:
+  providerUrl: https://placeholder-api/openai
+  inputMessage: request
+  tlsClientProfile: tls-client-profile-default:1.0.0
+  apiKeySecret: placeholder-api-key
+  model: $(a_model_id)
+  cachePolicy: disabled

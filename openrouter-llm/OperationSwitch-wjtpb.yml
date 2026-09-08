@@ -1,0 +1,36 @@
+kind: OperationSwitch
+apiVersion: api.ibm.com/v1
+metadata:
+  name: OperationSwitch-wjtpb
+  namespace: openrouter-llm
+  version: '1.0'
+  tags: []
+  labels:
+    gatewayTypes:
+      - nano
+spec:
+  cases:
+    - conditions:
+        - verbPath:
+            path: /chat/completions
+            verb: POST
+      execute:
+        - $ref: openrouter-llm:InvokeOpenAiChatCompletions-wjtpb:1.0
+    - conditions:
+        - verbPath:
+            path: /embeddings
+            verb: POST
+      execute:
+        - $ref: openrouter-llm:InvokeOpenAiEmbeddings-wjtpb:1.0
+    - conditions:
+        - verbPath:
+            path: /models
+            verb: GET
+      execute:
+        - $ref: openrouter-llm:InvokeOpenAiModels-wjtpb:1.0
+    - conditions:
+        - verbPath:
+            path: /models/{a_model_id}
+            verb: GET
+      execute:
+        - $ref: openrouter-llm:InvokeOpenAiModelsId-wjtpb:1.0

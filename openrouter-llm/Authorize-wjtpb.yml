@@ -1,0 +1,14 @@
+kind: Authorize
+apiVersion: api.ibm.com/v1
+metadata:
+  name: Authorize-wjtpb
+  namespace: openrouter-llm
+  version: '1.0'
+  tags: []
+  labels:
+    gatewayTypes:
+      - nano
+spec:
+  operation:
+    subscription: {}
+  namespace: client

@@ -1,0 +1,15 @@
+kind: Set
+apiVersion: api.ibm.com/v1
+metadata:
+  name: Set-wjtpb
+  namespace: openrouter-llm
+  version: '1.0'
+  tags: []
+  labels:
+    gatewayTypes:
+      - nano
+spec:
+  valueType: jsonata
+  variable:
+    name: a_model_id
+    value: $pathParameter('a_model_id')

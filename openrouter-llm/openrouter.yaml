@@ -1,0 +1,26 @@
+kind: LLMProvider
+apiVersion: api.ibm.com/v1
+metadata:
+  name: openrouter
+  namespace: openrouter-llm
+  version: "1.0"
+  tags: []
+  labels:
+    gatewayTypes:
+      - nano
+  domain: ai-platform
+spec:
+  provider:
+    type: custom
+    operations:
+      - InvokeOpenAiModels
+      - InvokeOpenAiModelsId
+      - InvokeOpenAiChatCompletions
+      - InvokeOpenAiEmbeddings
+    apiKeySecret: openrouter-llm-creds
+    tlsClientProfile: sample-tls-client-profile:1.0.0
+    inputMessage: request
+    cachePolicy: disabled
+    providerUrl: https://openrouter.ai/api
+  product:
+    $ref: openrouter-llm:product-openrouter-wjtpb:1.0

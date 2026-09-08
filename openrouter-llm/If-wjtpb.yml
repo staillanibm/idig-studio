@@ -1,0 +1,14 @@
+kind: If
+apiVersion: api.ibm.com/v1
+metadata:
+  name: If-wjtpb
+  namespace: openrouter-llm
+  version: '1.0'
+  tags: []
+  labels:
+    gatewayTypes:
+      - nano
+spec:
+  condition: ($pathParameter('a_model_id'))
+  execute:
+    - $ref: openrouter-llm:Set-wjtpb:1.0

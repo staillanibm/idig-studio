@@ -1,0 +1,20 @@
+kind: FreeFlowPolicySequence
+apiVersion: api.ibm.com/v1
+metadata:
+  name: freeflowpolicysequence-openrouter-wjtpb
+  namespace: openrouter-llm
+  version: '1.0'
+  tags: []
+  domain: ai-platform
+  labels:
+    gatewayTypes:
+      - nano
+spec:
+  main:
+    - $ref: openrouter-llm:ExtractIdentity-wjtpb:1.0
+    - $ref: openrouter-llm:Authenticate-wjtpb:1.0
+    - $ref: openrouter-llm:Authorize-wjtpb:1.0
+    - $ref: openrouter-llm:If-wjtpb:1.0
+    - $ref: openrouter-llm:OperationSwitch-wjtpb:1.0
+  monitoring:
+    $ref: openrouter-llm:Telemetry-wjtpb:1.0

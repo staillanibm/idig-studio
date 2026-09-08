@@ -1,0 +1,14 @@
+kind: Product
+apiVersion: api.ibm.com/v1
+metadata:
+  name: product-openrouter-wjtpb
+  namespace: openrouter-llm
+  version: '1.0'
+  tags: []
+  domain: ai-platform
+  description: ''
+spec:
+  apis:
+    - $ref: openrouter-llm:api-openrouter-wjtpb:1.0
+  plans:
+    - $ref: openrouter-llm:plan-openrouter-wjtpb:1.0

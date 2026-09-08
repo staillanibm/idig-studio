@@ -1,0 +1,68 @@
+openapi: 3.0.0
+info:
+  version: '1.0'
+  title: openrouter
+servers:
+  - url: /
+paths:
+  /chat/completions:
+    post:
+      responses:
+        '200':
+          description: success
+          content:
+            application/json:
+              schema:
+                type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: string
+  /embeddings:
+    post:
+      responses:
+        '200':
+          description: success
+          content:
+            application/json:
+              schema:
+                type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: string
+  /models:
+    get:
+      responses:
+        '200':
+          description: success
+          content:
+            application/json:
+              schema:
+                type: string
+  /models/{a_model_id}:
+    get:
+      responses:
+        '200':
+          description: success
+          content:
+            application/json:
+              schema:
+                type: string
+      parameters:
+        - name: a_model_id
+          in: path
+          required: true
+          schema:
+            type: string
+          example: model-id-0
+components:
+  securitySchemes:
+    clientID:
+      type: apiKey
+      in: header
+      name: X-IBM-Client-Id
+security:
+  - clientID: []

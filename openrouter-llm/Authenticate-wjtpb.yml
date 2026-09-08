@@ -1,0 +1,14 @@
+kind: Authenticate
+apiVersion: api.ibm.com/v1
+metadata:
+  name: Authenticate-wjtpb
+  namespace: openrouter-llm
+  version: '1.0'
+  tags: []
+  labels:
+    gatewayTypes:
+      - nano
+spec:
+  namespace: client
+  operation:
+    subscription: {}

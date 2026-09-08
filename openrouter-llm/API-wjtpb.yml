@@ -1,0 +1,13 @@
+kind: API
+apiVersion: api.ibm.com/v1
+metadata:
+  name: api-openrouter-wjtpb
+  namespace: openrouter-llm
+  version: '1.0'
+  tags: []
+  domain: ai-platform
+spec:
+  api-spec:
+    $path: ./api-spec-wjtpb.yml
+  policy-sequence:
+    - $ref: openrouter-llm:freeflowpolicysequence-openrouter-wjtpb:1.0

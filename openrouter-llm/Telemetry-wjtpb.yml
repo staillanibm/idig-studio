@@ -1,0 +1,25 @@
+kind: Telemetry
+apiVersion: api.ibm.com/v1
+metadata:
+  name: Telemetry-wjtpb
+  namespace: openrouter-llm
+  version: '1.0'
+  tags: []
+  labels:
+    gatewayTypes:
+      - nano
+spec:
+  verbosity:
+    - level: detailed
+      onSuccessTrimTo: detailed
+      inboundLevel: detailed
+      outboundLevel: detailed
+      operations:
+        - path: /chat/completions
+          method: POST
+        - path: /embeddings
+          method: POST
+        - path: /models
+          method: GET
+        - path: /models/{a_model_id}
+          method: GET

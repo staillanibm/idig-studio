@@ -1,0 +1,20 @@
+kind: ExtractIdentity
+apiVersion: api.ibm.com/v1
+metadata:
+  name: ExtractIdentity-wjtpb
+  namespace: openrouter-llm
+  version: '1.0'
+  tags: []
+  labels:
+    gatewayTypes:
+      - nano
+spec:
+  credentialType:
+    apiKey:
+      clientId:
+        httpHeader:
+          name: X-IBM-Client-Id
+      clientSecret:
+        httpHeader:
+          name: X-IBM-Client-Secret
+  namespace: client

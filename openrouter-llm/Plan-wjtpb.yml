@@ -1,0 +1,44 @@
+kind: Plan
+apiVersion: api.ibm.com/v1
+metadata:
+  name: plan-openrouter-wjtpb
+  namespace: openrouter-llm
+  version: '1.0'
+  tags: []
+  description: ''
+  domain: ai-platform
+spec:
+  qos:
+    withQuota:
+      openai-token-weighted:
+        - $ref: openrouter-llm:openai-token-weighted-wjtpb:1.0
+  extensions:
+    dp-nano-gateway:
+      apiVersion: api.ibm.com/v1
+      spec:
+        apis:
+          - $ref: openrouter-llm:api-openrouter-wjtpb:1.0
+            operations:
+              - path: /chat/completions
+                method: post
+              - path: /embeddings
+                method: post
+              - path: /models
+                method: get
+              - path: /models/{a_model_id}
+                method: get
+        telemetry: {}
+    dp-gateway:
+      apiVersion: api.ibm.com/v1
+      spec:
+        apis:
+          - $ref: openrouter-llm:api-openrouter-wjtpb:1.0
+            operations:
+              - path: /chat/completions
+                method: post
+              - path: /embeddings
+                method: post
+              - path: /models
+                method: get
+              - path: /models/{a_model_id}
+                method: get
