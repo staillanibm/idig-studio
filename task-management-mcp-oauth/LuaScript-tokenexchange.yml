@@ -1,0 +1,87 @@
+kind: LuaScript
+apiVersion: api.ibm.com/v1
+metadata:
+  name: LuaScript-tokenexchange
+  namespace: task-management-mcp-oauth
+  version: '1.0'
+  tags: []
+  labels:
+    gatewayTypes:
+      - nano
+spec:
+  actions:
+    set-auth-broker:
+      $ref: task-management-mcp-oauth:SetAuthorization-tokenexchange:1.0
+    invoke-keycloak:
+      $ref: task-management-mcp-oauth:Invoke-tokenexchange:1.0
+  source: |
+    -- Read the inbound Bearer token (issued upstream by the agentic layer)
+    local req = context:get_message("request")
+    local auth_header = req.headers:get("Authorization")
+
+    if auth_header == nil then
+      error("Missing Authorization header on inbound request")
+    end
+
+    local auth_header_str = tostring(auth_header)
+    local subject_token = auth_header_str:match("^Bearer%s+(.+)$")
+    if subject_token == nil then
+      error("Authorization header is not a Bearer token")
+    end
+
+    -- URL-encode helper for form-urlencoded body construction
+    local function url_encode(str)
+      str = string.gsub(str, "([^%w%-%.%_%~])", function(c)
+        return string.format("%%%02X", string.byte(c))
+      end)
+      return str
+    end
+
+    -- Build the token-exchange request body
+    local params = {
+      grant_type = "urn:ietf:params:oauth:grant-type:token-exchange",
+      subject_token = subject_token,
+      subject_token_type = "urn:ietf:params:oauth:token-type:access_token",
+      scope = "task-management-api-audience tasks:read tasks:write",
+    }
+
+    local parts = {}
+    for key, value in pairs(params) do
+      table.insert(parts, url_encode(key) .. "=" .. url_encode(value))
+    end
+    local body = table.concat(parts, "&")
+
+    -- Create and populate the exchange_request message
+    local exchange_request = context:create_message("exchange_request")
+    exchange_request.headers = {
+      ["Content-Type"] = "application/x-www-form-urlencoded"
+    }
+    exchange_request.body:write(body)
+
+    -- Inject Basic Auth for the broker client (reads secret token-exchange-creds)
+    context:run_action("set-auth-broker")
+
+    -- Call Keycloak's token endpoint to perform the exchange
+    context:run_action("invoke-keycloak")
+
+    -- Parse the exchange response
+    local exchange_response = context:get_message("exchange_response")
+    if exchange_response.status ~= 200 then
+      error("Token exchange failed: HTTP " .. tostring(exchange_response.status))
+    end
+
+    local response_body = exchange_response.body:read()
+    local response_body_str
+    if type(response_body) == "string" then
+      response_body_str = response_body
+    else
+      response_body_str = response_body:tostring()
+    end
+
+    local parsed = json.decode(response_body_str)
+    if parsed.access_token == nil then
+      error("Token exchange response did not contain an access_token")
+    end
+
+    -- Inject the exchanged token into the outbound request's Authorization header
+    req.headers:set("Authorization", "Bearer " .. parsed.access_token)

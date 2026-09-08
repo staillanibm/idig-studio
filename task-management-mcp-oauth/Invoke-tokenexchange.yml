@@ -1,0 +1,25 @@
+kind: Invoke
+apiVersion: api.ibm.com/v1
+metadata:
+  name: Invoke-tokenexchange
+  namespace: task-management-mcp-oauth
+  version: '1.0'
+  tags: []
+  labels:
+    gatewayTypes:
+      - nano
+spec:
+  input: exchange_request
+  output: exchange_response
+  endpoint:
+    http:
+      verb: POST
+      target:
+        url: https://keycloak.sttlab.eu/realms/sttlab/protocol/openid-connect/token
+        urlType: plain
+        timeout: 15
+        persistentConnections: false
+        tlsClientProfile: sample-tls-client-profile:1.0.0
+        decompressResponse: true
+        followRedirects: false
+        chunkedUpload: false

@@ -29,6 +29,20 @@
       "contentHash": "fd49104ecefbfdac"
     },
     {
+      "id": "251e82af-e9bb-4aa2-a537-9fc0995646d0:0",
+      "projectId": "l7qmIKyz",
+      "filePath": "task-management-mcp-oauth/SetAuthorization-tokenexchange.yml",
+      "docIndex": 0,
+      "assetType": "resource",
+      "lastIndexed": 1788870829953,
+      "schemaVersion": 1,
+      "kind": "SetAuthorization",
+      "name": "SetAuthorization-tokenexchange",
+      "namespace": "task-management-mcp-oauth",
+      "version": "1.0",
+      "contentHash": "d5d001a05fa712c4"
+    },
+    {
       "id": "252a7303-61f3-40e3-84ad-d13b41416fa2:0",
       "projectId": "l7qmIKyz",
       "filePath": "task-management-mcp-oauth/telemetry-s6hqi.yaml",
@@ -117,6 +131,20 @@
       "schemaVersion": 1
     },
     {
+      "id": "63c62411-7061-4c81-86b4-b03cef68b1e2:0",
+      "projectId": "l7qmIKyz",
+      "filePath": "task-management-mcp-oauth/LuaScript-tokenexchange.yml",
+      "docIndex": 0,
+      "assetType": "resource",
+      "lastIndexed": 1788870829953,
+      "schemaVersion": 1,
+      "kind": "LuaScript",
+      "name": "LuaScript-tokenexchange",
+      "namespace": "task-management-mcp-oauth",
+      "version": "1.0",
+      "contentHash": "e5079ec84d201317"
+    },
+    {
       "id": "84e0703c-a0ba-429e-8d94-bef4e1d01af4:0",
       "projectId": "l7qmIKyz",
       "filePath": "task-management-mcp-oauth/Authenticate-gK5bK.yml",
@@ -131,18 +159,32 @@
       "contentHash": "8819abe1eb069ba2"
     },
     {
+      "id": "8516574f-474c-4ab5-8967-e269ecf10549:0",
+      "projectId": "l7qmIKyz",
+      "filePath": "task-management-mcp-oauth/Invoke-tokenexchange.yml",
+      "docIndex": 0,
+      "assetType": "resource",
+      "lastIndexed": 1788870829952,
+      "schemaVersion": 1,
+      "kind": "Invoke",
+      "name": "Invoke-tokenexchange",
+      "namespace": "task-management-mcp-oauth",
+      "version": "1.0",
+      "contentHash": "11bab81812f515fd"
+    },
+    {
       "id": "89986879-a926-40c0-a5f4-0ccbcf181018:0",
       "projectId": "l7qmIKyz",
       "filePath": "task-management-mcp-oauth/task-management-mcp-oauth-freeflowpolicysequence-s6hqi.yaml",
       "docIndex": 0,
       "assetType": "resource",
-      "lastIndexed": 1788858717761,
+      "lastIndexed": 1788870844480,
       "schemaVersion": 1,
       "kind": "FreeFlowPolicySequence",
       "name": "task-management-mcp-oauth-freeflowpolicysequence-s6hqi",
       "namespace": "task-management-mcp-oauth",
       "version": "1.0",
-      "contentHash": "423d0754971f4c59"
+      "contentHash": "fa0d9e32744c0453"
     },
     {
       "id": "a0cc0f21-e92a-45a2-bdc2-061d3276b94f:0",
@@ -241,18 +283,6 @@
       "lastValidated": 1788857877716
     },
     {
-      "id": "2a9db70e-582b-4928-ac59-2e08e221103f",
-      "projectId": "l7qmIKyz",
-      "sourceNodeId": "89986879-a926-40c0-a5f4-0ccbcf181018:0",
-      "targetNodeId": "c9891bb0-37e8-4893-8e1b-33f98970919d:0",
-      "targetRefType": "same-project",
-      "targetRefString": "task-management-mcp-oauth:SetAuthorization-z5Tj5:1.0",
-      "targetRefKind": "resource",
-      "isValid": true,
-      "createdAt": 1788854868880,
-      "lastValidated": 1788854892780
-    },
-    {
       "id": "2af6cdaf-034e-4e8a-87b1-6825e65937e7",
       "projectId": "l7qmIKyz",
       "sourceNodeId": "27cdf9c1-b2a4-4923-bbe7-1c774fded7ef:0",
@@ -277,6 +307,18 @@
       "lastValidated": 1788855070922
     },
     {
+      "id": "37f8f720-495d-4c62-82bf-5c7ca5f1e610",
+      "projectId": "l7qmIKyz",
+      "sourceNodeId": "89986879-a926-40c0-a5f4-0ccbcf181018:0",
+      "targetNodeId": "63c62411-7061-4c81-86b4-b03cef68b1e2:0",
+      "targetRefType": "same-project",
+      "targetRefString": "task-management-mcp-oauth:LuaScript-tokenexchange:1.0",
+      "targetRefKind": "resource",
+      "isValid": true,
+      "createdAt": 1788870844482,
+      "lastValidated": 1788870844482
+    },
+    {
       "id": "408d6050-3912-45b4-b8ab-6e178ecf8187",
       "projectId": "l7qmIKyz",
       "sourceNodeId": "89986879-a926-40c0-a5f4-0ccbcf181018:0",
@@ -287,6 +329,18 @@
       "isValid": true,
       "createdAt": 1788854899685,
       "lastValidated": 1788854914105
+    },
+    {
+      "id": "66e53d69-cdd7-439d-94ab-db9982f541ee",
+      "projectId": "l7qmIKyz",
+      "sourceNodeId": "63c62411-7061-4c81-86b4-b03cef68b1e2:0",
+      "targetNodeId": "251e82af-e9bb-4aa2-a537-9fc0995646d0:0",
+      "targetRefType": "same-project",
+      "targetRefString": "task-management-mcp-oauth:SetAuthorization-tokenexchange:1.0",
+      "targetRefKind": "resource",
+      "isValid": true,
+      "createdAt": 1788870829955,
+      "lastValidated": 1788870829955
     },
     {
       "id": "68f9cd42-10c6-4611-a789-70afffa676cb",
@@ -310,7 +364,7 @@
       "targetRefKind": "resource",
       "isValid": true,
       "createdAt": 1788854813486,
-      "lastValidated": 1788858717770
+      "lastValidated": 1788870844486
     },
     {
       "id": "7b9b8d64-51e1-4e0f-9627-e00bfb48c67e",
@@ -359,6 +413,18 @@
       "isValid": true,
       "createdAt": 1788858619062,
       "lastValidated": 1788858672718
+    },
+    {
+      "id": "cfc92c8e-b7ad-4b9c-a3bd-c562619f9e22",
+      "projectId": "l7qmIKyz",
+      "sourceNodeId": "63c62411-7061-4c81-86b4-b03cef68b1e2:0",
+      "targetNodeId": "8516574f-474c-4ab5-8967-e269ecf10549:0",
+      "targetRefType": "same-project",
+      "targetRefString": "task-management-mcp-oauth:Invoke-tokenexchange:1.0",
+      "targetRefKind": "resource",
+      "isValid": true,
+      "createdAt": 1788870829955,
+      "lastValidated": 1788870829955
     },
     {
       "id": "e84442ff-742f-4fc5-8592-2a651ec350be",

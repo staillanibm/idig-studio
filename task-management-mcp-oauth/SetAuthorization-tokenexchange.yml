@@ -1,0 +1,14 @@
+kind: SetAuthorization
+apiVersion: api.ibm.com/v1
+metadata:
+  name: SetAuthorization-tokenexchange
+  namespace: task-management-mcp-oauth
+  version: '1.0'
+  tags: []
+  labels:
+    gatewayTypes:
+      - nano
+spec:
+  basic:
+    secret: token-exchange-creds
+  message: exchange_request

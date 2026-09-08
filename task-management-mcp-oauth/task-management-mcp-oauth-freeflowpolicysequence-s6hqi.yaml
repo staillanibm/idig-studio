@@ -15,7 +15,7 @@ spec:
     - $ref: task-management-mcp-oauth:Authenticate-gK5bK:1.0
     - $ref: task-management-mcp-oauth:Switch-dbs4W:1.0
     - $ref: task-management-mcp-oauth:RateLimit-U6ZCX:1.0
-    - $ref: task-management-mcp-oauth:SetAuthorization-z5Tj5:1.0
+    - $ref: task-management-mcp-oauth:LuaScript-tokenexchange:1.0
     - $ref: task-management-mcp-oauth:invoke-s6hqi:1.0
   monitoring:
     $ref: task-management-mcp-oauth:telemetry-s6hqi:1.0
