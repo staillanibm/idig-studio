@@ -1,0 +1,14 @@
+kind: SetAuthorization
+apiVersion: api.ibm.com/v1
+metadata:
+  name: SetAuthorization-UJIFn
+  namespace: task-management-mcp
+  version: '1.0'
+  tags: []
+  labels:
+    gatewayTypes:
+      - nano
+spec:
+  basic:
+    secret: task-management-api-creds
+  message: request

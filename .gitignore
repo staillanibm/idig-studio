@@ -1,0 +1,8 @@
+.env
+.mcp.json
+CONTEXT.md
+subscriptions/
+builds/
+.claude/
+.bob/
+SKILL_IMPROVEMENTS.md

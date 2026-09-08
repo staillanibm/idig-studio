@@ -1,0 +1,22 @@
+kind: Invoke
+apiVersion: api.ibm.com/v1
+metadata:
+  name: Invoke-Nfxp0
+  namespace: task-management-mcp
+  version: '1.0'
+  tags: []
+  labels:
+    gatewayTypes:
+      - nano
+spec:
+  endpoint:
+    http:
+      target:
+        tlsClientProfile: sample-tls-client-profile:1.0.0
+        url: '''https://tasks.sttlab.eu'' & $pathAndQuery()'
+        urlType: jsonata
+        persistentConnections: false
+        timeout: 30
+        decompressResponse: true
+        followRedirects: false
+        chunkedUpload: false

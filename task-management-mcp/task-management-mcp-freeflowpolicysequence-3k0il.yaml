@@ -1,0 +1,21 @@
+kind: FreeFlowPolicySequence
+apiVersion: api.ibm.com/v1
+metadata:
+  name: task-management-mcp-freeflowpolicysequence-3k0il
+  namespace: task-management-mcp
+  version: '1.0'
+  tags: []
+  labels:
+    gatewayTypes:
+      - nano
+  domain: mcp
+spec:
+  main:
+    - $ref: task-management-mcp:ExtractIdentity-vLxrX:1.0
+    - $ref: task-management-mcp:Authenticate-cnMlQ:1.0
+    - $ref: task-management-mcp:Authorize-yUu1e:1.0
+    - $ref: task-management-mcp:RateLimit-U6ZCX:1.0
+    - $ref: task-management-mcp:SetAuthorization-UJIFn:1.0
+    - $ref: task-management-mcp:Invoke-Nfxp0:1.0
+  monitoring:
+    $ref: task-management-mcp:telemetry-3k0il:1.0

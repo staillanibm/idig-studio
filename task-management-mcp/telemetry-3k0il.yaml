@@ -1,0 +1,12 @@
+kind: Telemetry
+apiVersion: api.ibm.com/v1
+metadata:
+  name: telemetry-3k0il
+  namespace: task-management-mcp
+  version: "1.0"
+  tags: []
+  domain: mcp
+  labels:
+    gatewayTypes:
+      - nano
+spec: {}

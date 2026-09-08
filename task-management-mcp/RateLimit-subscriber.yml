@@ -1,0 +1,26 @@
+kind: RateLimit
+apiVersion: api.ibm.com/v1
+metadata:
+  name: RateLimit-U6ZCX
+  namespace: task-management-mcp
+  version: '1.0'
+  tags: []
+  labels:
+    gatewayTypes:
+      - nano
+spec:
+  target: all
+  limits:
+    - limitDef:
+        name: plan-limit
+        definition:
+          $ref: task-management-mcp:plan-limit:1.0.0
+        operation: consume
+  extensions:
+    dp-nano-gateway:
+      apiVersion: lw_1.0.0
+      spec:
+        limits:
+          - aliasLimit:
+              name: plan-limit
+              operation: consume

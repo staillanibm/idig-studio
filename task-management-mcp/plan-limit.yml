@@ -1,0 +1,17 @@
+kind: RateLimitDef
+apiVersion: api.ibm.com/v1
+metadata:
+  name: plan-limit
+  namespace: task-management-mcp
+  version: 1.0.0
+  tags: []
+spec:
+  max: 50
+  intervalLen: 1
+  intervalUnit: minute
+  consumerSpecific: true
+  extensions:
+    dp-nano-gateway:
+      apiVersion: lw_1.0.0
+      spec:
+        exceedAction: return429

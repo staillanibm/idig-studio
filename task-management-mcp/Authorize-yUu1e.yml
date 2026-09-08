@@ -1,0 +1,13 @@
+kind: Authorize
+apiVersion: api.ibm.com/v1
+metadata:
+  name: Authorize-yUu1e
+  namespace: task-management-mcp
+  version: '1.0'
+  tags: []
+  labels:
+    gatewayTypes:
+      - nano
+spec:
+  operation:
+    subscription: {}
